@@ -1,4 +1,4 @@
-﻿using GC_Shops.Features.Implementations.MetroComponent;
+﻿using GC_Shops.Features.MetroComponent;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

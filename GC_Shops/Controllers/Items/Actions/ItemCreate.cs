@@ -1,4 +1,4 @@
-﻿using GC_Shops.Features.Implementations.ItemComponent;
+﻿using GC_Shops.Features.ItemComponent;
 using GS_Shops.Db;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

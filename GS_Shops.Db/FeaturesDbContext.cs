@@ -1,8 +1,8 @@
-﻿using GC_Shops.Features.Implementations;
-using GC_Shops.Features.Implementations.CoordinateComponent;
-using GC_Shops.Features.Implementations.ItemComponent;
-using GC_Shops.Features.Implementations.MetroComponent;
-using GC_Shops.Features.Implementations.ShopComponent;
+﻿using GC_Shops.Features;
+using GC_Shops.Features.CoordinateComponent;
+using GC_Shops.Features.ItemComponent;
+using GC_Shops.Features.MetroComponent;
+using GC_Shops.Features.ShopComponent;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

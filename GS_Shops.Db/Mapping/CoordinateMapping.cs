@@ -1,5 +1,5 @@
-﻿using GC_Shops.Features.Implementations;
-using GC_Shops.Features.Implementations.CoordinateComponent;
+﻿using GC_Shops.Features;
+using GC_Shops.Features.CoordinateComponent;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

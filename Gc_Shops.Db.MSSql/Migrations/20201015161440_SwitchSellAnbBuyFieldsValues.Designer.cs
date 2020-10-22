@@ -21,7 +21,7 @@ namespace Gc_Shops.Db.MSSql.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("GC_Shops.Features.Implementations.ItemComponent.Item", b =>
+            modelBuilder.Entity("GC_Shops.Features.ItemComponent.Item", b =>
                 {
                     b.Property<string>("ItemId")
                         .HasColumnType("nvarchar(450)");
@@ -38,7 +38,7 @@ namespace Gc_Shops.Db.MSSql.Migrations
                     b.ToTable("Items");
                 });
 
-            modelBuilder.Entity("GC_Shops.Features.Implementations.MetroComponent.ControlBlock", b =>
+            modelBuilder.Entity("GC_Shops.Features.MetroComponent.ControlBlock", b =>
                 {
                     b.Property<int>("ControlBlockId")
                         .ValueGeneratedOnAdd()
@@ -79,7 +79,7 @@ namespace Gc_Shops.Db.MSSql.Migrations
                     b.ToTable("ControlBlocks");
                 });
 
-            modelBuilder.Entity("GC_Shops.Features.Implementations.MetroComponent.MetroOwner", b =>
+            modelBuilder.Entity("GC_Shops.Features.MetroComponent.MetroOwner", b =>
                 {
                     b.Property<Guid>("MetroOwnerId")
                         .ValueGeneratedOnAdd()
@@ -94,7 +94,7 @@ namespace Gc_Shops.Db.MSSql.Migrations
                     b.ToTable("MetroOwners");
                 });
 
-            modelBuilder.Entity("GC_Shops.Features.Implementations.MetroComponent.MetroStation", b =>
+            modelBuilder.Entity("GC_Shops.Features.MetroComponent.MetroStation", b =>
                 {
                     b.Property<Guid>("MetroStationId")
                         .ValueGeneratedOnAdd()
@@ -119,7 +119,7 @@ namespace Gc_Shops.Db.MSSql.Migrations
                     b.ToTable("MetroStation");
                 });
 
-            modelBuilder.Entity("GC_Shops.Features.Implementations.ShopComponent.Shop", b =>
+            modelBuilder.Entity("GC_Shops.Features.ShopComponent.Shop", b =>
                 {
                     b.Property<Guid>("ShopId")
                         .ValueGeneratedOnAdd()
@@ -134,7 +134,7 @@ namespace Gc_Shops.Db.MSSql.Migrations
                     b.ToTable("Shops");
                 });
 
-            modelBuilder.Entity("GC_Shops.Features.Implementations.ShopComponent.ShopItem", b =>
+            modelBuilder.Entity("GC_Shops.Features.ShopComponent.ShopItem", b =>
                 {
                     b.Property<Guid>("ShopId")
                         .HasColumnType("uniqueidentifier");
@@ -161,35 +161,35 @@ namespace Gc_Shops.Db.MSSql.Migrations
                     b.ToTable("ShopItem");
                 });
 
-            modelBuilder.Entity("GC_Shops.Features.Implementations.MetroComponent.ControlBlock", b =>
+            modelBuilder.Entity("GC_Shops.Features.MetroComponent.ControlBlock", b =>
                 {
-                    b.HasOne("GC_Shops.Features.Implementations.MetroComponent.ControlBlock", "EastCb")
+                    b.HasOne("GC_Shops.Features.MetroComponent.ControlBlock", "EastCb")
                         .WithMany()
                         .HasForeignKey("EastCbControlBlockId")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("GC_Shops.Features.Implementations.MetroComponent.MetroStation", null)
+                    b.HasOne("GC_Shops.Features.MetroComponent.MetroStation", null)
                         .WithMany("ControlBlocks")
                         .HasForeignKey("MetroStationId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("GC_Shops.Features.Implementations.MetroComponent.ControlBlock", "NorthCb")
+                    b.HasOne("GC_Shops.Features.MetroComponent.ControlBlock", "NorthCb")
                         .WithMany()
                         .HasForeignKey("NorthCbControlBlockId")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("GC_Shops.Features.Implementations.MetroComponent.ControlBlock", "SouthCb")
+                    b.HasOne("GC_Shops.Features.MetroComponent.ControlBlock", "SouthCb")
                         .WithMany()
                         .HasForeignKey("SouthCbControlBlockId")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.HasOne("GC_Shops.Features.Implementations.MetroComponent.ControlBlock", "WestCb")
+                    b.HasOne("GC_Shops.Features.MetroComponent.ControlBlock", "WestCb")
                         .WithMany()
                         .HasForeignKey("WestCbControlBlockId")
                         .OnDelete(DeleteBehavior.NoAction);
 
-                    b.OwnsOne("GC_Shops.Features.Implementations.CoordinateComponent.Coordinate", "Coordinate", b1 =>
+                    b.OwnsOne("GC_Shops.Features.CoordinateComponent.Coordinate", "Coordinate", b1 =>
                         {
                             b1.Property<int>("ControlBlockId")
                                 .ValueGeneratedOnAdd()
@@ -219,21 +219,21 @@ namespace Gc_Shops.Db.MSSql.Migrations
                         });
                 });
 
-            modelBuilder.Entity("GC_Shops.Features.Implementations.MetroComponent.MetroStation", b =>
+            modelBuilder.Entity("GC_Shops.Features.MetroComponent.MetroStation", b =>
                 {
-                    b.HasOne("GC_Shops.Features.Implementations.MetroComponent.MetroOwner", "Owner")
+                    b.HasOne("GC_Shops.Features.MetroComponent.MetroOwner", "Owner")
                         .WithMany()
                         .HasForeignKey("OwnerMetroOwnerId");
 
-                    b.HasOne("GC_Shops.Features.Implementations.ShopComponent.Shop", null)
+                    b.HasOne("GC_Shops.Features.ShopComponent.Shop", null)
                         .WithMany("MetroStations")
                         .HasForeignKey("ShopId")
                         .OnDelete(DeleteBehavior.SetNull);
                 });
 
-            modelBuilder.Entity("GC_Shops.Features.Implementations.ShopComponent.Shop", b =>
+            modelBuilder.Entity("GC_Shops.Features.ShopComponent.Shop", b =>
                 {
-                    b.OwnsOne("GC_Shops.Features.Implementations.CoordinateComponent.Coordinate", "Coordinate", b1 =>
+                    b.OwnsOne("GC_Shops.Features.CoordinateComponent.Coordinate", "Coordinate", b1 =>
                         {
                             b1.Property<Guid>("ShopId")
                                 .HasColumnType("uniqueidentifier");
@@ -256,15 +256,15 @@ namespace Gc_Shops.Db.MSSql.Migrations
                         });
                 });
 
-            modelBuilder.Entity("GC_Shops.Features.Implementations.ShopComponent.ShopItem", b =>
+            modelBuilder.Entity("GC_Shops.Features.ShopComponent.ShopItem", b =>
                 {
-                    b.HasOne("GC_Shops.Features.Implementations.ItemComponent.Item", "Item")
+                    b.HasOne("GC_Shops.Features.ItemComponent.Item", "Item")
                         .WithMany()
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GC_Shops.Features.Implementations.ShopComponent.Shop", "Shop")
+                    b.HasOne("GC_Shops.Features.ShopComponent.Shop", "Shop")
                         .WithMany("Items")
                         .HasForeignKey("ShopId")
                         .OnDelete(DeleteBehavior.Cascade)

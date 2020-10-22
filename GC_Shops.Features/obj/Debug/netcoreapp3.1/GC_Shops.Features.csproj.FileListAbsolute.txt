@@ -1,9 +1,0 @@
-C:\workdisk\my\projects\greencubes\GC_Shops\GC_Shops.Features\bin\Debug\netcoreapp3.1\GC_Shops.Features.deps.json
-C:\workdisk\my\projects\greencubes\GC_Shops\GC_Shops.Features\bin\Debug\netcoreapp3.1\GC_Shops.Features.dll
-C:\workdisk\my\projects\greencubes\GC_Shops\GC_Shops.Features\obj\Debug\netcoreapp3.1\GC_Shops.Features.csprojAssemblyReference.cache
-C:\workdisk\my\projects\greencubes\GC_Shops\GC_Shops.Features\obj\Debug\netcoreapp3.1\GC_Shops.Features.AssemblyInfoInputs.cache
-C:\workdisk\my\projects\greencubes\GC_Shops\GC_Shops.Features\obj\Debug\netcoreapp3.1\GC_Shops.Features.AssemblyInfo.cs
-C:\workdisk\my\projects\greencubes\GC_Shops\GC_Shops.Features\obj\Debug\netcoreapp3.1\GC_Shops.Features.csproj.CoreCompileInputs.cache
-C:\workdisk\my\projects\greencubes\GC_Shops\GC_Shops.Features\bin\Debug\netcoreapp3.1\GC_Shops.Features.pdb
-C:\workdisk\my\projects\greencubes\GC_Shops\GC_Shops.Features\obj\Debug\netcoreapp3.1\GC_Shops.Features.dll
-C:\workdisk\my\projects\greencubes\GC_Shops\GC_Shops.Features\obj\Debug\netcoreapp3.1\GC_Shops.Features.pdb

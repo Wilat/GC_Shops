@@ -1,4 +1,4 @@
-﻿using GC_Shops.Features.Implementations.ItemComponent;
+﻿using GC_Shops.Features.ItemComponent;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
