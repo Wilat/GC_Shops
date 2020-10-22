@@ -58,8 +58,7 @@ namespace GC_Shops.Features.MetroComponent
             other != null
             && (
                 ReferenceEquals(this, other) 
-                || ControlBlockId == other.ControlBlockId
-                || (ControlBlockId == default || other.ControlBlockId == default) && Coordinate.Equals(other.Coordinate));
+                || ControlBlockId == other.ControlBlockId);
 
         public override bool Equals(object obj) =>
             obj is ControlBlock cb && Equals(cb);

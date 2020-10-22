@@ -38,8 +38,7 @@ namespace GC_Shops.Features.MetroComponent
             other != null
             && (
                 ReferenceEquals(this, other) 
-                || MetroStationId == other.MetroStationId
-                || (MetroStationId == default || other.MetroStationId == default) && Name == other.Name);
+                || MetroStationId == other.MetroStationId);
 
         public override bool Equals(object obj) =>
             obj is MetroStation station && Equals(station);
