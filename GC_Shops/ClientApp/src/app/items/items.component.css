@@ -1,0 +1,6 @@
+.row-added {
+  background: rgba(150, 255, 10, 0.6) !important;
+}
+.row-modified {
+  background: rgba(255, 255, 100, 0.6)!important;
+}

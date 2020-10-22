@@ -1,0 +1,63 @@
+<p *ngIf="!shops"><em>Loading...</em></p>
+<div *ngIf="shops && shopItems">
+  <div>
+    <label *ngFor="let shop of shops">
+      <span>{{shop.name}}</span>
+      <input type="checkbox" [(ngModel)]="shop.show" />
+    </label>
+  </div>
+  <table aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th class="itemCell" rowspan="4">Id предмета</th>
+        <th class="itemCell" rowspan="4">Название предмета</th>
+        <th [attr.colspan]="visibleShops.length * 6">Магазины</th>
+      </tr>
+      <tr>
+        <th *ngFor="let shop of visibleShops" colspan="6">{{ shop.name }}</th>
+      </tr>
+      <tr>
+        <ng-container *ngFor="let shop of visibleShops">
+          <th colspan="3">Продажа</th>
+          <th colspan="3">Покупка</th>
+        </ng-container>
+      </tr>
+      <tr>
+        <ng-container *ngFor="let shop of visibleShops">
+          <ng-container *ngFor="let x of [0, 1]">
+            <th class="cell">Цена</th>
+            <th class="cell">Предметов за операцию</th>
+            <th class="cell">Цена за стак</th>
+          </ng-container>
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let shopItem of shopItems" class="item-row">
+        <td class="itemCell">{{ shopItem.id }}</td>
+        <td class="itemCell">{{ shopItem.name }}</td>
+        <ng-container *ngFor="let shop of visibleShops;">
+          <ng-container *ngIf="shopItem.shops[shop.id]; let cell">
+            <td [class.modified]="cell.state == ItemState.modified" [class.created]="cell.state == ItemState.created" class="cell buyCell"><input type="text" [(ngModel)]="cell.buyCost" (ngModelChange)="onChange(cell)" /></td>
+            <td [class.modified]="cell.state == ItemState.modified" [class.created]="cell.state == ItemState.created" class="cell buyCell"><input type="text" [(ngModel)]="cell.itemsInBuy" (ngModelChange)="onChange(cell)" /></td>
+            <td [class.modified]="cell.state == ItemState.modified" [class.created]="cell.state == ItemState.created" class="cell buyCell" *ngIf="cell.itemsInBuy > 0">
+              <div [class.best-cost]="IsBestCost(shopItem, true, shop.id)">
+                {{ RoundValue(shopItem.stackSize * cell.buyCost / cell.itemsInBuy) }}
+              </div>
+            </td>
+            <td class="cell buyCell" *ngIf="cell.itemsInBuy == 0"></td>
+            <td [class.modified]="cell.state == ItemState.modified" [class.created]="cell.state == ItemState.created" class="cell sellCell"><input type="text" [(ngModel)]="cell.sellCost" (ngModelChange)="onChange(cell)" /></td>
+            <td [class.modified]="cell.state == ItemState.modified" [class.created]="cell.state == ItemState.created" class="cell sellCell"><input type="text" [(ngModel)]="cell.itemsInSell" (ngModelChange)="onChange(cell)" /></td>
+            <td [class.modified]="cell.state == ItemState.modified" [class.created]="cell.state == ItemState.created" class="cell sellCell" *ngIf="cell.itemsInSell > 0">
+              <div [class.best-cost]="IsBestCost(shopItem, false, shop.id)">
+                {{ RoundValue(shopItem.stackSize * cell.sellCost / cell.itemsInSell) }}
+              </div>
+            </td>
+            <td class="cell sellCell" *ngIf="cell.itemsInSell == 0"></td>
+          </ng-container>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="SaveChanges()">Сохранить изменения</button>
+</div>

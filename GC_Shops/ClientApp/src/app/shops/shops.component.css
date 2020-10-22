@@ -1,0 +1,59 @@
+table {
+ min-width: calc(100% - 3rem);
+ margin: 1.5rem;
+}
+  table td, table th {
+    border: 1px solid black;
+    vertical-align: top;
+    font-size: 0.7rem;
+    padding: 0.3rem;
+    background: transparent;
+  }
+
+  input {
+      width: 50px;
+  }
+
+  .cell {
+      width: 75px;
+      max-width: 75px;
+      min-width: 75px;
+      overflow: hidden;
+      text-align: center;
+  }
+
+  .itemCell {
+      width: 150px;
+      max-width: 150px;
+      min-width: 150px;
+  }
+
+table td.buyCell, table th.buyCell {
+  background: rgba(220, 120, 220, 0.6);
+}
+table td.sellCell, table th.sellCell {
+  background: rgba(120, 120, 220, 0.6);
+}
+
+.best-cost {
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: rgba(150, 2550, 0, 0.5);
+}
+
+tr.item-row:hover {
+  background: rgba(255, 255, 0, 0.2);
+  outline: 2px solid rgba(120, 255, 220, 0.6);
+}
+
+td, tr {
+    transition: 0.3s ease all;
+}
+
+.created input {
+  background: rgba(130, 255, 130, 0.5);
+}
+
+.modified input {
+  background: rgba(255, 255, 130, 0.5);
+}

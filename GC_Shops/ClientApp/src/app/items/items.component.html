@@ -1,0 +1,24 @@
+<p *ngIf="!items"><em>Loading...</em></p>
+<div *ngIf="items">
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="items">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Название</th>
+        <th>Размер стака</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items"
+          [class.row-modified]="item.state == ItemState.modified"
+          [class.row-added]="item.state == ItemState.created">
+        <td><input type="text" [(ngModel)]="item.id" (ngModelChange)="ModifyItem(item.id)" /></td>
+        <td><input type="text" [(ngModel)]="item.name" (ngModelChange)="ModifyItem(item.id)" /></td>
+        <td><input type="text" [(ngModel)]="item.stackSize" (ngModelChange)="ModifyItem(item.id)" /></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button (click)="AddItem()">Добавить элемент</button>
+  <button (click)="SaveItems()">Сохранить изменения</button>
+</div>
